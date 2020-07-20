@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-def concat(a: str, b: str) -> str:
 
-    """Concat function
+if __name__ != "__main__":
+    def concat(a: str, b: str) -> str:
 
-    Args:
-    a: first string
-    b: second string
+        """Concat function
 
-    Returns:
-    The return value. a + b
-    """
-    return (a + b)
+        Args:
+        a: first string
+        b: second string
+
+        Returns:
+        The return value. a + b
+        """
+        return (a + b)
