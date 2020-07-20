@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 def to_str(n: float) -> str:
 
-    """My addition function
+    """to_str function
 
     Args:
-        a: first float
-        b: second float
+    n: first float
 
     Returns:
-        The return value. a + b
+        The return string value. n
     """
     return (str(n))

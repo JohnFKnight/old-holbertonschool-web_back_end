@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def add(a: float, b: float) -> float:
 
-    """My addition function
+    """add floats function
 
     Args:
         a: first float

@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 def concat(a: str, b: str) -> str:
 
-    """My addition function
+    """Concat function
 
     Args:
-        a: first float
-        b: second float
+        a: first string
+        b: second string
 
     Returns:
         The return value. a + b

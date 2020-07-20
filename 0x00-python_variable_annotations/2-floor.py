@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 def floor(n: float) -> int:
 
-    """My addition function
+    """floor function
 
     Args:
-        a: first float
-        b: second float
+        n: first float
 
     Returns:
-        The return value. a + b
+        The return int value: n
     """
     return (int(n))
