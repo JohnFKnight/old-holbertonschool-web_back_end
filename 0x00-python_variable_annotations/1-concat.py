@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 def concat(a: str, b: str) -> str:
 
     """Concat function

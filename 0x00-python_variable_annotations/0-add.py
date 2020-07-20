@@ -1,6 +1,6 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
-if __name__ !_ "__main__":
+if __name__ != "__main__":
     def add(a: float, b: float) -> float:
 
         """add floats function
