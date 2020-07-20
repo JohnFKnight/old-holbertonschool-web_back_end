@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def floor(n: float ) -> int:
+def floor(n: float) -> int:
 
     """My addition function
 
