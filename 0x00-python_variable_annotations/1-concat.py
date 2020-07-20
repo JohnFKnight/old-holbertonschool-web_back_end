@@ -4,10 +4,10 @@ def concat(a: str, b: str) -> str:
     """Concat function
 
     Args:
-        a: first string
-        b: second string
+    a: first string
+    b: second string
 
     Returns:
-        The return value. a + b
+    The return value. a + b
     """
     return (a + b)
