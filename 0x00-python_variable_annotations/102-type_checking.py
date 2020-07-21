@@ -5,7 +5,7 @@ from typings import Tuple
 
 if __name__ != "__main__":
     def zoom_array(lst: Tuple, fctr: int = 2) -> Tuple[float, int]:
-        john: Tuple = [item for item in lst for i in range(fctr)]
+        john: Tuple = [item for item in lst, i for i in range(fctr)]
         return (john)
 
 
