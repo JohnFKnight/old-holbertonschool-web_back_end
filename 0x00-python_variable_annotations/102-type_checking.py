@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+""" Sample code. Correct and annotate."""
+
 
 def zoom_array(lst: Tuple, fctr: int = 2) -> Tuple:
     john: Tuple = [item for item in lst, for i in range(fctr)]
