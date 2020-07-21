@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Sum floats. Return float."""
 
 if __name__ != "__main__":
     def add(a: float, b: float) -> float:

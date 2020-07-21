@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
-def floor(n: float) -> int:
+"""Return floor of float parameter."""
 
+
+def floor(n: float) -> int:
     """floor function
 
     Args:

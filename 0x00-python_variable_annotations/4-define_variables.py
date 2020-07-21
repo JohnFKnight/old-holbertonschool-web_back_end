@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Define annotated (implied?) variables."""
 
 """annotate variables (implied?)
 

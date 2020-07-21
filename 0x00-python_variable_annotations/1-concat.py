@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Concat two strings."""
 
 if __name__ != "__main__":
     def concat(a: str, b: str) -> str:
