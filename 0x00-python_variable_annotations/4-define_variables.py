@@ -1,13 +1,8 @@
 #!/usr/bin/env python3
-"""Define annotated (implied?) variables."""
-
 """annotate variables (implied?)
-
 Args:
 n: first float
-
-Returns:
-Nothing.
+Returns: Nothing.
 """
 
 a = 1
