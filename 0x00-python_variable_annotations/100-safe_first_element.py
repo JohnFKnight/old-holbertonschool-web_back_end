@@ -2,10 +2,12 @@
 """Make sample code annoted."""
 
 
-from typing import List, Iterable, Sequence, Tuple
+from typing import List, Iterable, Sequence, Tuple, Any, Union
 
 
-def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
-
-    """Make sample code annoted."""
-    return [(i, len(i)) for i in lst]
+def safe_first_element(lst: Sequence[Any]) -> Union[Any, type(None)]:
+    """Make sample code annoted Duck typing."""
+    if lst:
+        return lst[0]
+    else:
+        return None
