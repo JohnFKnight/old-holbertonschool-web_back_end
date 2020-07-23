@@ -4,6 +4,7 @@
 import asyncio
 import random
 
+
 async def async_generator():
     """Basic async syntax of asyc generator."""
     for i in range(10):
