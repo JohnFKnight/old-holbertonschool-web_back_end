@@ -4,3 +4,4 @@
 *will*.*
 *gary*.*
 **__pycache__/
+.mypy_cache/
