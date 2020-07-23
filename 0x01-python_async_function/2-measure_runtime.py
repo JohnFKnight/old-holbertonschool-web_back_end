@@ -7,7 +7,7 @@ import time
 wait_n = __import__('1-concurrent_coroutines').wait_n
 
 
-async def measure_time(n: int, max_delay: int) -> float:
+async def measure_time(n: int, max_delay: int = 10) -> float:
     """execute multiple coroutines at the same time with async."""
 
     elaspsed: float
