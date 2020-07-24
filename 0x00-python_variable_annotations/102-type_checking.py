@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 """ Sample code. Correct and annotate."""
 
-from typings import Tuple
+from typing import Tuple, List, Union
 
-if __name__ != "__main__":
-    def zoom_array(lst: Tuple, fctr: int = 2) -> Tuple[float, int]:
-        john: Tuple = [item for item in lst, i for i in range(fctr)]
-        return (john)
+
+def zoom_array(lst: Tuple, factor: int = 2) -> List:
+    john: Tuple[...] = (
+        item for item in lst
+        for i in range(factor)
+    )
+    return (john)
 
 
 array = [12, 72, 91]
