@@ -5,6 +5,7 @@ from typing import Tuple, List, Union
 
 
 def zoom_array(lst: Tuple, factor: int = 2) -> List:
+    """ Sample code. Correct and annotate."""
     john: Tuple[...] = (
         item for item in lst
         for i in range(factor)
