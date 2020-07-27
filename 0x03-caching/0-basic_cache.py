@@ -14,12 +14,12 @@ class BasicCache(BaseCaching):
         """ Add to cache disctionary
         """
         if key is None or item is None:
-            pass
+            return
         self.cache_data[key] = item
 
     def get(self, key):
         """ Get value from cache
         """
         if key is None or not key:
-            pass
+            return
         return self.cache_data.get(key)
