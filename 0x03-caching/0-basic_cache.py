@@ -9,10 +9,10 @@ class BasicCache(BaseCaching):
       - constants of your caching system
       - where your data are stored (in a dictionary)
     """
-    def __init__(self):
-        """ Initialize
-        """
-        self.cache_data = {}
+    # def __init__(self):
+    #     """ Initialize
+    #     """
+    #     self.cache_data = {}
 
     def put(self, key, item):
         """ Add to cache disctionary
