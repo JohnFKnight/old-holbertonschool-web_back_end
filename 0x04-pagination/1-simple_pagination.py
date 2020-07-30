@@ -36,11 +36,17 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """Paginate csv file
+        """
         assert isinstance(page, int)
         assert isinstance(page_size, int)
         assert page > 0
         assert page_size > 0
 
-        self.page = page
-        self.page_size = page_size
-        index_range(self.page, self.page_size)
+        ind_range: tuple
+        ind_range = index_range(page, page_size)
+        print(ind_range)
+
+        names = self.dataset()
+        print("mames ", names[0])
+                        
