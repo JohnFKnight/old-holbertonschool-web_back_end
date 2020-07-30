@@ -4,7 +4,7 @@
 
 import csv
 import math
-from typing import List, Tuple
+from typing import List, Tuple, Dict
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
@@ -36,15 +36,36 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """Paginate csv file
+        """
         assert isinstance(page, int)
         assert isinstance(page_size, int)
         assert page > 0
         assert page_size > 0
 
+        idx_range: tuple
+        idx_range = index_range(page, page_size)
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[List]:
+        names = self.dataset()
+        return names[idx_range[0]:idx_range[1]]
+
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, str]:
+        """Return pagination dictionary data of csv file
+        """
         assert isinstance(page, int)
         assert isinstance(page_size, int)
         assert page > 0
         assert page_size > 0
 
+        dset = self.dataset()
+        tot_pages = math.ceil(len(dset) / page_size)
+
+        d: Dict[str, str] = {}
+        d["page_size"] = page_size
+        d["page"] = page
+        d["data"] = self.get_page(page, page_size)
+        d["next_page"] = page + 1 if page + 1 <= tot_pages else None
+        d["prev_page"] = page - 1 if page - 1 >= 0 else None
+        d["total_pages"] = tot_pages
+
+        return d
