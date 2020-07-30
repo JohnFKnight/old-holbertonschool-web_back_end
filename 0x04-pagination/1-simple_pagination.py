@@ -49,4 +49,3 @@ class Server:
 
         names = self.dataset()
         print("mames ", names[0])
-                        
