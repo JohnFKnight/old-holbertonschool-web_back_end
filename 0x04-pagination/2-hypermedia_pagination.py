@@ -65,8 +65,8 @@ class Server:
                           and page_size <= tot_pages else 0)
         d["page"] = page
         d["data"] = self.get_page(page, page_size)
-        d["next_page"] = page + 1 if page + 1 <= tot_pages else None
-        d["prev_page"] = page - 1 if page - 1 >= 0 else None
+        d["next_page"] = page + 1 if page + 1 <= tot_pages else 0
+        d["prev_page"] = page - 1 if page - 1 >= 0 else 0
         d["total_pages"] = tot_pages
 
         return d
