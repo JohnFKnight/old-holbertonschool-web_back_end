@@ -61,7 +61,8 @@ class Server:
         tot_pages = math.ceil(len(dset) / page_size)
 
         d: Dict[str, str] = {}
-        d["page_size"] = page_size if page <= tot_pages and page_size <= tot_pages else 0
+        d["page_size"] = (page_size if page <= tot_pages
+                          and page_size <= tot_pages else 0)
         d["page"] = page
         d["data"] = self.get_page(page, page_size)
         d["next_page"] = page + 1 if page + 1 <= tot_pages else None
