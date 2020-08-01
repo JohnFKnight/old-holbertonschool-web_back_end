@@ -52,5 +52,4 @@ class Server:
         d["page_size"] = page_size
         d["data"] = [data[index - 1], data[1]]   # for i in range(page_size)]]
         return d
-
-                                                                                                                    
+                                                                                 
