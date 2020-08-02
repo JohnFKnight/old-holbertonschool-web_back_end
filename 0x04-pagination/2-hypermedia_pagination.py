@@ -11,7 +11,7 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """Return 2 member tuple of start, end index
     """
 
-    res: tuple
+    res: Tuple
     res = ((page - 1) * page_size, page * page_size)
     return res
 
@@ -43,7 +43,7 @@ class Server:
         assert page > 0
         assert page_size > 0
 
-        idx_range: tuple
+        idx_range: Tuple
         idx_range = index_range(page, page_size)
 
         names = self.dataset()
