@@ -4,7 +4,9 @@
 
 from typing import List
 
-def filter_datum(fields: List[str], redaction: str, message: str, separator: str):
+
+def filter_datum(fields: List[str], redaction: str,
+                 message: str, separator: str):
     """
     Mask field values with redaction.
     Return message with masked field values, delimited by separator.
@@ -17,7 +19,7 @@ def filter_datum(fields: List[str], redaction: str, message: str, separator: str
 
     msg1 = message.split(";")
     del msg1[len(msg1) - 1]
-    dmsg = {k:v for k,v in (x.split('=') for x in msg1) }
+    dmsg = {k: v for k, v in (x.split('=') for x in msg1)}
 
     for field in fields:
         dmsg[field] = redaction
