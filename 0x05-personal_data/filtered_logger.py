@@ -13,7 +13,14 @@ def filter_datum(fields: List[str], redaction: str,
     """
 
     message2: str = ""
-    for i, field in enumerate(fields):
-        message2 = re.sub(field + "(.*);$",
-                          field + "=" + redaction + separator, message)
-    return message2
+    # for i, field in enumerate(fields):
+    message2 = (re.sub("(" + field + ".*;$)",
+                       field + "=" + redaction + separator, message)
+                for field in fields)
+    print (*(msg for msg in message2))
+
+
+    # substitutions = 
+    # substrings = sorted(fields, key=len, reverse=True)
+    # regex = re.compile('|'.join(map(re.escape, substrings)))
+    # return regex.sub(lambda match: fields[match.group(0)], message) 
