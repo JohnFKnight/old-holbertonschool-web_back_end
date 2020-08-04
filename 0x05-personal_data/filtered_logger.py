@@ -8,8 +8,7 @@ from typing import List
 
 def filter_datum(fields: List[str], redaction: str,
                  message: str, separator: str) -> str:
-    """
-    Mask field values with redaction.
+    """ Mask field values with redaction.
     Return message with masked field values, delimited by separator.
     """
 
