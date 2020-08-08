@@ -12,7 +12,6 @@ def filter_datum(fields: List[str], redaction: str,
     Return message with masked field values, delimited by separator.
     """
 
-    message2 = ""
     for i, field in enumerate(fields):
         message = (re.sub(field + "(.+?);",
                           field + "=" + redaction + separator, message))
