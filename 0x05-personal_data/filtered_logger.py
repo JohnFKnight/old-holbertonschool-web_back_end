@@ -12,15 +12,12 @@ def filter_datum(fields: List[str], redaction: str,
     Return message with masked field values, delimited by separator.
     """
 
-    message2: str = ""
-    # for i, field in enumerate(fields):
-    message2 = (re.sub("(" + field + ".*;$)",
-                       field + "=" + redaction + separator, message)
-                for field in fields)
-    print (*(msg for msg in message2))
+    message2  = ""
+    for i, field in enumerate(fields):
+        message = (re.sub(field + "(.+?)\;",
+                    field + "=" + redaction + separator, message))
+               # for field in fields)
+    # print (*(msg for msg in message2))
+    # print(message)
 
-
-    # substitutions = 
-    # substrings = sorted(fields, key=len, reverse=True)
-    # regex = re.compile('|'.join(map(re.escape, substrings)))
-    # return regex.sub(lambda match: fields[match.group(0)], message) 
+    return message
