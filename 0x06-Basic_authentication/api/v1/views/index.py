@@ -31,5 +31,12 @@ def unauthorized() -> str:
     Return:
       - the 401 error by using 'abort - Custom Error Pages'
     """
-    return abort(401, description="Unauthorizeddd")
-    # return jasonify({"error": "Unauthorized"})
+    return abort(401, description="Unauthorized")
+
+@app_views.route('/forbidden', methods=['GET'], strict_slashes=False)
+def forbidden() -> str:
+    """ GET /api/v1/forbidden
+    Return:
+      - the 403 error by using 'abort - Custon Error Pages'
+    """
+    return abort(403, description="Forbidden")
