@@ -44,3 +44,23 @@ class BasicAuth(Auth):
             return bah3
         except Exception:
             return None
+
+    def extract_user_credentials(
+            self, decoded_base64_authorization_header: str) -> (str, str):
+        """ Base 64 decode auth header
+        """
+        dbah = decoded_base64_authorization_header
+
+        if (dbah is None) or (not isinstance(dbah, str)) or (not ":" in dbah):
+            return (None, None)
+        res = dbah.split(":")
+        return tuple(res)
+    
+    def user_object_from_credentials(
+            self,user_email: str, user_pwd: str) -> TypeVar('User'):
+        """ Basic User
+        """
+
+        # if ((user_email is None)
+        #         or (user_pwd is None):
+        #     return None
