@@ -44,7 +44,8 @@ def forbidden(error) -> str:
 def before_request():
     """ Before request
     """
-    badpaths = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
+    badpaths = ['/api/v1/status/',
+                '/api/v1/unauthorized/', '/api/v1/forbidden/']
     if auth is not None and auth.require_auth(request.path, badpaths):
         if auth.authorization_header(request) is None:
             return abort(401, description="Unauthorized")
