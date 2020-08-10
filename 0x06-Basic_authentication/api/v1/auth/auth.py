@@ -29,7 +29,7 @@ class Auth():
         """
         if request is None:
             return None
-        if request.headers['Authorization']:
+        if 'Authorization' in request.headers:
             return request.headers['Authorization']
         else:
             return None
