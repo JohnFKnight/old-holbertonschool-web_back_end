@@ -51,13 +51,13 @@ class BasicAuth(Auth):
         """
         dbah = decoded_base64_authorization_header
 
-        if (dbah is None) or (not isinstance(dbah, str)) or (not ":" in dbah):
+        if (dbah is None) or (not isinstance(dbah, str)) or (":" not in dbah):
             return (None, None)
         res = dbah.split(":")
         return tuple(res)
-    
+
     def user_object_from_credentials(
-            self,user_email: str, user_pwd: str) -> TypeVar('User'):
+            self, user_email: str, user_pwd: str) -> TypeVar('User'):
         """ Basic User
         """
 
