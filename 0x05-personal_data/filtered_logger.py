@@ -40,6 +40,7 @@ class RedactingFormatter(logging.Formatter):
 
     def format(self, record: logging.LogRecord) -> str:
         """ Filter, format record.
+        tried: return self.FORMAT, x (filter_datum result)
         """
         record.msg = filter_datum(self.fields, self.REDACTION,
                                   record.getMessage(), self.SEPARATOR)
