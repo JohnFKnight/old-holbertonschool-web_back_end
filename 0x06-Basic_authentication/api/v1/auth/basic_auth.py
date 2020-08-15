@@ -87,4 +87,3 @@ class BasicAuth(Auth):
         self._password = kwargs.get('_password')
         self.first_name = kwargs.get('first_name')
         self.last_name = kwargs.get('last_name')
-
