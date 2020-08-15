@@ -53,7 +53,7 @@ class BasicAuth(Auth):
 
         if (dbah is None) or (not isinstance(dbah, str)) or (":" not in dbah):
             return (None, None)
-        res = dbah.split(":")
+        res = dbah.split(":", 1)
         return tuple(res)
 
     def user_object_from_credentials(
