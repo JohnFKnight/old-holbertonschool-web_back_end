@@ -62,8 +62,14 @@ class BasicAuth(Auth):
         """
         from models.user import User
 
-        user = User()
+        if (user_email is None) or (not isinstance(user_email, str)) \
+           or (user_pwd is None) or (not isinstance(user_pwd, str)):
+            return None
 
-        if ((user_email is None) or (not isinstance(user_email, str))
-                or (user_pwd is None) or (not isinstance(user_pwd, str))):
+        user = User.search({"email": user_email})
+        if user is not None and len(user) > 0:
+            user = user[0]
+        if user and user.is_valid_password(user_pwd):
+            return user
+        else:
             return None
