@@ -34,8 +34,8 @@ class BasicAuth(Auth):
         """
         bah = base64_authorization_header
 
-        if ((base64_authorization_header is None)
-                or (not isinstance(base64_authorization_header, str))):
+        if (base64_authorization_header is None) \
+           or (not isinstance(base64_authorization_header, str)):
             return None
         try:
             bah1 = bah.encode("UTF-8")
@@ -78,3 +78,13 @@ class BasicAuth(Auth):
                     return None
         except Exception:
             return None
+
+    def current_user(self, request=None) -> TypeVar('User'):
+        """ Full authorizaiton for user. Overload Auth.
+        """
+        super().__init__(*args, **kwargs)
+        self.email = kwargs.get('email')
+        self._password = kwargs.get('_password')
+        self.first_name = kwargs.get('first_name')
+        self.last_name = kwargs.get('last_name')
+
