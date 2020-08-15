@@ -79,11 +79,11 @@ class BasicAuth(Auth):
         except Exception:
             return None
 
-    def current_user(self, request=None) -> TypeVar('User'):
-        """ Full authorizaiton for user. Overload Auth.
-        """
-        super().__init__(*args, **kwargs)
-        self.email = kwargs.get('email')
-        self._password = kwargs.get('_password')
-        self.first_name = kwargs.get('first_name')
-        self.last_name = kwargs.get('last_name')
+    # def current_user(self, request=None) -> TypeVar('User'):
+    #     """ Full authorizaiton for user. Overload Auth.
+    #     """
+    #     super().__init__(*args, **kwargs)
+    #     self.email = kwargs.get('email')
+    #     self._password = kwargs.get('_password')
+    #     self.first_name = kwargs.get('first_name')
+    #     self.last_name = kwargs.get('last_name')
