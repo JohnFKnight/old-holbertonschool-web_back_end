@@ -21,7 +21,7 @@ class Auth():
         for excluded in excluded_paths:
             wildcard = excluded.find("*")
             if wildcard >= 0:
-                if excluded.paths[:wildcard] in path:
+                if excluded[:wildcard] in path:
                     return False
         if path[-1] != "/":
             path += "/"
