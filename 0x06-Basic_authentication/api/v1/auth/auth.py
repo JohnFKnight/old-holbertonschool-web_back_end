@@ -18,10 +18,11 @@ class Auth():
             return True
         if excluded_paths is None or not excluded_paths:
             return True
-        wildcard = excluded_paths.find("*")
-        if wildcard >= 0:
-            if excluded.paths(:wildcard - 1) in path:
-                return False
+        for excluded in excluded_paths:
+            wildcard = excluded.find("*")
+            if wildcard >= 0:
+                if excluded.paths[:wildcard] in path:
+                    return False
         if path[-1] != "/":
             path += "/"
         if path in excluded_paths:
