@@ -41,7 +41,7 @@ def get_logger() -> logging.Logger:
                                    logging.INFO, None, None, None, None, None)
     log_record.addHandler(handler)
     formatter = logging.Formatter(fields=(self.PII_FIELDS))
-    return formatter.format(log_record)
+    return formatter
 
 
 def filter_datum(fields: List[str], redaction: str,
