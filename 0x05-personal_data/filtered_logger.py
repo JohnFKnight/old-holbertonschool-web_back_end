@@ -49,7 +49,7 @@ def get_logger() -> logging.Logger:
     """ Create log record
     """
     # RedactingFormatter = RedactingFormatter()
-    
+
     log = logging.getLogger("user_data")
     formatter = RedactingFormatter(fields=(PII_FIELDS))
     handler = logging.StreamHandler()
