@@ -33,17 +33,6 @@ class RedactingFormatter(logging.Formatter):
         return super().format(record)
 
 
-def get_logger() -> logging.Logger:
-    """ Create log record
-    """
-    handler = logging.StreamHandler()
-    log_record = logging.LogRecord("\"user_data",
-                                   logging.INFO, None, None, None, None, None)
-    log_record.addHandler(handler)
-    formatter = logging.Formatter(fields=(self.PII_FIELDS))
-    return formatter
-
-
 def filter_datum(fields: List[str], redaction: str,
                  message: str, separator: str) -> str:
     """ Mask field values with redaction.
@@ -54,3 +43,15 @@ def filter_datum(fields: List[str], redaction: str,
         message = (re.sub(field + "(.+?)" + separator,
                           field + "=" + redaction + separator, message))
     return message
+
+
+def get_logger() -> logging.Logger:
+    """ Create log record
+    """
+    log = logging.getLogger("user_data")
+    formatter = logging.Formatter(fields=(PII_FIELDS))
+    handler = logging.StreamHandler()
+    handler.setLevel(level=logging.INFO)
+    handler.setFormatter(formatter)
+    log.addHandler(handler)
+    return log
