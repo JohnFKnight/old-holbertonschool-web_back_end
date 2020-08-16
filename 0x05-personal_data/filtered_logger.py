@@ -34,6 +34,8 @@ class RedactingFormatter(logging.Formatter):
 
 
 def get_logger() -> logging.Logger:
+    """ Create log record
+    """
     handler = logging.StreamHandler()
     log_record = logging.LogRecord("\"user_data",
                                    logging.INFO, None, None, None, None, None)
