@@ -61,7 +61,7 @@ def get_logger() -> logging.Logger:
     return log
 
 
-def get_db() -> None:
+def get_db() -> mysql.connector.connection.MySQLConnection:
     """ Create database connector object.
     """
     uname = e['PERSONAL_DATA_DB_USERNAME']
