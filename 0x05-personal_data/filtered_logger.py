@@ -4,7 +4,7 @@
 
 import re
 import logging
-from typing import List
+from typing import List, Generic, TypeVar
 from os import environ as e
 import mysql.connector
 
@@ -61,7 +61,7 @@ def get_logger() -> logging.Logger:
     return log
 
 
-def get_db():
+def get_db() -> None:
     """ Create database connector object.
     """
     uname = e['PERSONAL_DATA_DB_USERNAME']
