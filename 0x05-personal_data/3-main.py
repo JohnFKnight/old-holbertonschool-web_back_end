@@ -3,9 +3,7 @@
 Main file
 """
 
-print("BEFORE")
 get_db = __import__('filtered_logger').get_db
-print("AFTER")
 db = get_db()
 cursor = db.cursor()
 cursor.execute("SELECT COUNT(*) FROM users;")
