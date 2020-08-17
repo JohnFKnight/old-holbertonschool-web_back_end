@@ -62,6 +62,8 @@ def get_logger() -> logging.Logger:
 
 
 def get_db():
+    """ Create database connector object.
+    """
     uname = e['PERSONAL_DATA_DB_USERNAME']
     pwd = e['PERSONAL_DATA_DB_PASSWORD']
     host = e['PERSONAL_DATA_DB_HOST']
