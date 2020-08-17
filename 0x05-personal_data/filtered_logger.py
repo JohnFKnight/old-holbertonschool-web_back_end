@@ -97,14 +97,15 @@ def main():
     db.close()
 
 
-def hash_password(pwd: str): -> bytes:
-    """ Create salt-ed, hash-ed pwd
-    """
-    import bcrypt
+# def hash_password(pwd: str): -> bytes:
+#     """ Create salt-ed, hash-ed pwd
+#     """
+#     import bcrypt
 
-    # salt = bcrypt.gensalt()
-    return bcrypt.hashpw(bytes(pwd, 'utf-8'), bcrypt.gensalt())
+#     # salt = bcrypt.gensalt()
+#     return bcrypt.hashpw(bytes(pwd, 'utf-8'), bcrypt.gensalt())
 
 
 if __name__ == "__main__":
+    """ main """
     main()
