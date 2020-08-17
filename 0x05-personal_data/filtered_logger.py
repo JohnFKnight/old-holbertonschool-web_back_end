@@ -71,3 +71,26 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
 
     return mysql.connector.connect(database=db,
                                    host=host, user=uname, password=pwd)
+
+def main():
+    """ Main. Get and display all users with
+    redacted fields.
+    """
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM users;")
+    names = []
+    for j, row in enumerate(cursor):
+        message = ""
+        for i, col in enumerate(cursor.description):
+            message += "{}={}; ".format(col[0], row[i])
+    log_record = logging.LogRecord("user_data", logging.INFO, None, None, message, None, None)
+    formatter = RedactingFormatter(fields=list(PII_FIELDS))
+    for k in range(j + 1):
+        print(formatter.format(log_record))
+    cursor.close()
+    db.close()
+
+
+if __name__ == "__main__":
+    main()
