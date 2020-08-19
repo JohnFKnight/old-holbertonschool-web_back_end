@@ -45,7 +45,7 @@ class DB:
 
         # added_user = session.query(User).first()
 
-    def find_user_by(self, **keyword: ) -> User:
+    def find_user_by(self, **keyword) -> User:
         """ Find user based on keyword (key=value)
         """
         self.keyword = keyword
@@ -60,4 +60,4 @@ class DB:
             raise e
         return res
 
-    def update_user(user_id: 
+    # def update_user(user_id: 
