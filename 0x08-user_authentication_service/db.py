@@ -35,15 +35,10 @@ class DB:
         self.email = email
         self.hpwd = hashed_password
         session = self._session
-        try:
-            row = User(email=self.email,
-                       hashed_password=self.hpwd)
-            session.add(row)
-            session.commit()
-        except SQLAlchemyError as e:
-            print(e)
-        finally:
-            session.close()
+        row = User(email=self.email,
+                   hashed_password=self.hpwd)
+        session.add(row)
+        session.commit()
+        return row
 
-        added_user = session.query(User).first()
-        return added_user
+        # added_user = session.query(User).first()
