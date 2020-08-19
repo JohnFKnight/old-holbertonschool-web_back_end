@@ -60,4 +60,3 @@ class DB:
             raise e
         return res
 
-    # def update_user(user_id: 
