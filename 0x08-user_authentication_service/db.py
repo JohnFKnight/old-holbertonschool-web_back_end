@@ -6,8 +6,10 @@ from user import Base
 from user import User
 from typing import TypeVar, Generic
 
-class DB:
 
+class DB:
+    """ Class DB
+    """
     def __init__(self):
         """ Class constructor.
         """
