@@ -51,8 +51,11 @@ class DB:
         try:
             return session.query(User).filter_by(**self.keyword).first()
         except NoResultFound as e:
+            # print("no result err" , e)
             raise e
-            # return type(e)
         except InvalidRequestError as e:
+            # print("invalid req err ", e)
             raise e
-            # return type(e)
+        # finally:
+        #     raise NoResultFound()
+        # return res
