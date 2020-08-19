@@ -2,6 +2,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.exc import InvalidRequestError, SQLAlchemyError
+from sqlalchemy.orm.exc import NoResultFound
 
 from user import Base
 from user import User
@@ -42,3 +44,15 @@ class DB:
         return row
 
         # added_user = session.query(User).first()
+
+    def find_user_by(self, **keyword):
+        self.keyword = keyword
+        session = self._session
+        try:
+            return session.query(User).filter_by(**self.keyword).first()
+        except NoResultFound as e:
+            raise e
+            # return type(e)
+        except InvalidRequestError as e:
+            raise e
+            # return type(e)
