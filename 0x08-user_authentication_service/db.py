@@ -9,6 +9,8 @@ from typing import TypeVar, Generic
 class DB:
 
     def __init__(self):
+        """ Class constructor.
+        """
         self._engine = create_engine("sqlite:///a.db", echo=False)
         Base.metadata.drop_all(self._engine)
         Base.metadata.create_all(self._engine)
@@ -16,12 +18,14 @@ class DB:
 
     @property
     def _session(self):
+        """ Create session.
+        """
         if self.__session is None:
             DBSession = sessionmaker(bind=self._engine)
             self.__session = DBSession()
         return self.__session
 
-    def add_user(self, email: str, hashed_password: str) -> TypeVar('User'):
+    def add_user(self, email: str, hashed_password: str) -> User:
         """ Add user. Create session,
         then add user(email, pwd)?
         """
