@@ -49,13 +49,11 @@ class DB:
         self.keyword = keyword
         session = self._session
         try:
-            return session.query(User).filter_by(**self.keyword).first()
+            res = session.query(User).filter_by(**self.keyword).first()
+            if not res:
+                raise NoResultFound
         except NoResultFound as e:
-            # print("no result err" , e)
             raise e
         except InvalidRequestError as e:
-            # print("invalid req err ", e)
             raise e
-        # finally:
-        #     raise NoResultFound()
-        # return res
+        return res
