@@ -45,7 +45,9 @@ class DB:
 
         # added_user = session.query(User).first()
 
-    def find_user_by(self, **keyword):
+    def find_user_by(self, **keyword: ) -> User:
+        """ Find user based on keyword (key=value)
+        """
         self.keyword = keyword
         session = self._session
         try:
@@ -57,3 +59,5 @@ class DB:
         except InvalidRequestError as e:
             raise e
         return res
+
+    def update_user(user_id: 
