@@ -13,7 +13,7 @@ Base = declarative_base()
 class User(Base):
     """User subclass of Base"""
     __tablename__ = 'users'
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, nullable=False, unique=True)
     email = Column(String(250), nullable=True)
     hashed_password = Column(String(250), nullable=True)
     session_id = Column(String(250), nullable=True)
