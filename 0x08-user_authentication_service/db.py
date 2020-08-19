@@ -59,4 +59,3 @@ class DB:
         except InvalidRequestError as e:
             raise e
         return res
-
