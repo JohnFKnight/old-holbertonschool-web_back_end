@@ -20,8 +20,6 @@ class Auth:
     def register_user(self, email: str, password: str) -> User:
         """ Register user
         """
-    def register_user(self, email: str, password: str) -> User:
-        """ check if a user exists, otherwise register """
         try:
             self._db.find_user_by(email=email)
             raise ValueError  # ('User ' + email + ' already exists')
