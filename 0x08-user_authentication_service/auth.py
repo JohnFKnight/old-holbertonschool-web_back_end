@@ -26,7 +26,7 @@ class Auth:
         except Exception:
             _hash_password(password)
             # session = self._db._session()
-            return self._db.add_user(email, self._hash_password(password))
+            return self._db.add_user(email, _hash_password(password))
 
 
 def _hash_password(password: str) -> str:
