@@ -76,3 +76,4 @@ class DB:
             except Exception:
                 raise ValueError
         session.commit()
+        return None
