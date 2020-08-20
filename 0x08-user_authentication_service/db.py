@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" DB class to Add, find, update users 
+""" DB class to Add, find, update users
 """
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
