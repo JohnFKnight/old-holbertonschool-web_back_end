@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
+""" Auth class
+"""
 
 import bcrypt
 
 from db import DB
 from user import User
+from sqlalchemy.orm.exc import NoResultFound
 
 
 class Auth:
@@ -18,15 +21,12 @@ class Auth:
     def register_user(self, email: str, password: str) -> User:
         """ Register user
         """
-        self.email = email
         try:
-            self._db.find_user_by(email=self.email)
-            # print("FOUND USER", email)
+            self._db.find_user_by(email=email)
             raise ValueError('User ' + email + ' already exists')
         except Exception:
-            _hash_password(password)
-            # session = self._db._session()
-            return self._db.add_user(email, _hash_password(password))
+            hpwd = _hash_password(password)
+            return self._db.add_user(email, hpwd)
 
 
 def _hash_password(password: str) -> str:
