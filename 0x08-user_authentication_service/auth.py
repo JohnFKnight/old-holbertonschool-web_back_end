@@ -27,8 +27,8 @@ class Auth:
         try:
             self._db.find_user_by(email=self.email)
             print("FOUND USER", email)
-            raise ValueError('User ' +  email + ' already exists')
-        except:
+            raise ValueError('User ' + email + ' already exists')
+        except Exception:
             print("USER NOT FOUND", email)
             self._hash_password(password)
             # session = self._db._session()

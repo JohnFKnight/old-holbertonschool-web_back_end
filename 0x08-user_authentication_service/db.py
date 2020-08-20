@@ -74,14 +74,7 @@ class DB:
             try:
                 getattr(user, k)
                 setattr(user, k, v)
-            except:
+            except Exception:
                 raise ValueError
         session.commit()
         return None
-
-    # def _hash_password(self, password: str) -> str:
-    #     """ Create salt-ed, hash-ed pwd
-    #     """
-
-    #     return bcrypt.hashpw((pwd, 'utf-8'), bcrypt.gensalt())
-
