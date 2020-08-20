@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+""" DB class
+"""
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -64,7 +66,7 @@ class DB:
         return res
 
     def update_user(self, user_id: int, **keyword) -> None:
-        """ Update user attributes.
+        """ Update user attributes with keyword.
         """
         session = self._session
         self.uid = user_id
