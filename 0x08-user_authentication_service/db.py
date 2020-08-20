@@ -50,6 +50,7 @@ class DB:
         """
         self.keyword = keyword
         session = self._session
+        # for k, v in self.keyword.items():
         try:
             res = session.query(User).filter_by(**self.keyword).first()
             if not res:
@@ -59,3 +60,17 @@ class DB:
         except InvalidRequestError as e:
             raise e
         return res
+
+    def update_user(self, user_id: str, **keyword) -> None:
+        """ Update user attributes.
+        """
+        session = self._session
+        self.uid = user_id
+        self.kwd = keyword
+        user = self.find_user_by(id=self.uid)
+        for k, v in keyword.items():
+            try:
+                user.k = v
+            except Exception:
+                raise ValueError
+        session.commit
