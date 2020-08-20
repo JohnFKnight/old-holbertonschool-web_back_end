@@ -69,11 +69,10 @@ class DB:
         self.uid = user_id
         self.kwd = keyword
         user = self.find_user_by(id=self.uid)
-        for k, v in keyword.items():
-            getattr(user, k)
+        for k, v in self.kwd.items():
             try:
                 getattr(user, k)
                 setattr(user, k, v)
-                session.commit()
             except Exception:
                 raise ValueError
+        session.commit()
