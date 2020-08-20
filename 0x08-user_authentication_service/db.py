@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" DB class
+""" DB class to Add, find, update users 
 """
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -14,7 +14,7 @@ import bcrypt
 
 
 class DB:
-    """ Class DB
+    """ Class DB for users
     """
     def __init__(self):
         """ Class constructor.
