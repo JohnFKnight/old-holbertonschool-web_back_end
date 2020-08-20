@@ -62,7 +62,7 @@ class DB:
             raise e
         return res
 
-    def update_user(self, user_id: str, **keyword) -> None:
+    def update_user(self, user_id: int, **keyword) -> None:
         """ Update user attributes.
         """
         session = self._session
