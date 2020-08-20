@@ -15,11 +15,6 @@ class Auth:
         """
         self._db = DB()
 
-    def _hash_password(self, password: str) -> str:
-        """ Create salt-ed, hash-ed pwd
-        """
-        return bcrypt.hashpw(password.encode(), bcrypt.gensalt())
-
     def register_user(self, email: str, password: str) -> User:
         """ Register user
         """
@@ -29,7 +24,12 @@ class Auth:
             print("FOUND USER", email)
             raise ValueError('User ' + email + ' already exists')
         except Exception:
-            print("USER NOT FOUND", email)
-            self._hash_password(password)
+            _hash_password(password)
             # session = self._db._session()
             return self._db.add_user(email, self._hash_password(password))
+
+
+def _hash_password(password: str) -> str:
+    """ Create salt-ed, hash-ed pwd
+    """
+    return bcrypt.hashpw(password.encode(), bcrypt.gensalt())
