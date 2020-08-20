@@ -51,6 +51,7 @@ class DB:
         self.keyword = keyword
         session = self._session
         # for k, v in self.keyword.items():
+        # key = getattr(User, k)
         try:
             res = session.query(User).filter_by(**self.keyword).first()
             if not res:
@@ -69,8 +70,10 @@ class DB:
         self.kwd = keyword
         user = self.find_user_by(id=self.uid)
         for k, v in keyword.items():
+            getattr(user, k)
             try:
-                user.k = v
+                getattr(user, k)
+                setattr(user, k, v)
+                session.commit()
             except Exception:
                 raise ValueError
-        session.commit
