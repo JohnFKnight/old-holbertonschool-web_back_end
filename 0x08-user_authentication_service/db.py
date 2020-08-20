@@ -8,6 +8,7 @@ from sqlalchemy.orm.exc import NoResultFound
 from user import Base
 from user import User
 from typing import TypeVar, Generic
+import bcrypt
 
 
 class DB:
@@ -73,7 +74,14 @@ class DB:
             try:
                 getattr(user, k)
                 setattr(user, k, v)
-            except Exception:
+            except:
                 raise ValueError
         session.commit()
         return None
+
+    # def _hash_password(self, password: str) -> str:
+    #     """ Create salt-ed, hash-ed pwd
+    #     """
+
+    #     return bcrypt.hashpw((pwd, 'utf-8'), bcrypt.gensalt())
+
