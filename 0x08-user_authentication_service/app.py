@@ -13,13 +13,17 @@ def hello_world():
     return jsonify({"message": "Bienvenue"})
 
 
-@app.route('/users/<email>/<password>', methods=['POST'], strict_slashes=Fales)
+@app.route('/users/<email><password>', methods=['POST'], strict_slashes=False)
 def users(email, password):
     from auth import Auth
 
     AUTH = Auth()
 
-    
+    try:
+        user = auth.register_user(email, password)
+        return jasonify({"email": "<registered email>", "message": "user created"})
+    except ValueError as err:
+        return jasonify({"message": "email already registered"})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000")
