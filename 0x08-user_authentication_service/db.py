@@ -56,8 +56,8 @@ class DB:
             res = session.query(User).filter_by(**keyword).first()
             if not res:
                 raise NoResultFound
-        except NoResultFound as e:
-            raise e
+        # except NoResultFound as e:
+        #     raise e
         except InvalidRequestError as e:
             raise e
         return res
@@ -69,11 +69,11 @@ class DB:
         uid = user_id
         kwd = keyword
         user = self.find_user_by(id=uid)
-        for k, v in kwd.items():
-            try:
+        try:
+            for k, v in kwd.items():
                 getattr(user, k)
                 setattr(user, k, v)
-            except Exception:
-                raise ValueError
+        except Exception:
+            raise ValueError
         session.commit()
         return None

@@ -25,7 +25,8 @@ except NoResultFound:
 
 
 try:
-    find_user = my_db.find_user_by(email="test2@test.com")
+    param = {"email": "test@test.com"}
+    find_user = my_db.find_user_by(**param)
     print(find_user.id)
 except NoResultFound:
     print("Not found")

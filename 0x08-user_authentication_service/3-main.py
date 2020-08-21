@@ -28,3 +28,9 @@ try:
     print("Password updated")
 except ValueError:
     print("Error")
+
+try:
+    my_db.update_user(user.id, email='you@you.com')
+    print("Password updated")
+except ValueError:
+    print("Error")
