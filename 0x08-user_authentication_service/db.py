@@ -37,11 +37,10 @@ class DB:
         """ Add user. Create session,
         then add user(email, pwd)?
         """
-        self.email = email
-        self.hpwd = hashed_password
+        hpwd = hashed_password
         session = self._session
-        row = User(email=self.email,
-                   hashed_password=self.hpwd)
+        row = User(email=email,
+                   hashed_password=hpwd)
         session.add(row)
         session.commit()
         return row
@@ -51,12 +50,11 @@ class DB:
     def find_user_by(self, **keyword) -> User:
         """ Find user based on keyword (key=value)
         """
-        self.keyword = keyword
         session = self._session
         # for k, v in self.keyword.items():
         # key = getattr(User, k)
         try:
-            res = session.query(User).filter_by(**self.keyword).first()
+            res = session.query(User).filter_by(**keyword).first()
             if not res:
                 raise NoResultFound
         except NoResultFound as e:
@@ -69,10 +67,10 @@ class DB:
         """ Update user attributes with keyword.
         """
         session = self._session
-        self.uid = user_id
-        self.kwd = keyword
-        user = self.find_user_by(id=self.uid)
-        for k, v in self.kwd.items():
+        uid = user_id
+        kwd = keyword
+        user = self.find_user_by(id=uid)
+        for k, v in kwd.items():
             try:
                 getattr(user, k)
                 setattr(user, k, v)
