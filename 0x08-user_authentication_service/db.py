@@ -34,8 +34,7 @@ class DB:
         return self.__session
 
     def add_user(self, email: str, hashed_password: str) -> User:
-        """ Add user. Create session,
-        then add user(email, pwd)?
+        """ Add user. Create session, then add user(email, pwd)?
         """
         hpwd = hashed_password
         session = self._session
