@@ -2,7 +2,7 @@
 """ Flask app
 """
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
@@ -14,18 +14,21 @@ def hello_world():
     return jsonify({"message": "Bienvenue"})
 
 
-@app.route('/users/<email><password>', methods=['POST'], strict_slashes=False)
+@app.route('/users/<email>/<password>', methods=['GET', 'POST'], strict_slashes=False)
 def users(email, password):
+
     from auth import Auth
 
     AUTH = Auth()
+    # return request.args.get(email)
+    # return jsonify(email, password)
 
     try:
-        user = auth.register_user(email, password)
-        return jasonify({"email": "<registered email>",
+        user = AUTH.register_user(email, password)
+        return jsonify({"email": email,
                          "message": "user created"})
     except ValueError as err:
-        return jasonify({"message": "email already registered"})
+        return jsonify({"message": "email already registered"})
 
 
 if __name__ == "__main__":
