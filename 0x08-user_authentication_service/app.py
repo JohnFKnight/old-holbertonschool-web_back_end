@@ -14,7 +14,8 @@ def hello_world():
     return jsonify({"message": "Bienvenue"})
 
 
-@app.route('/users/<email>/<password>', methods=['GET', 'POST'], strict_slashes=False)
+@app.route('/users/<email>/<password>',
+           methods=['GET', 'POST'], strict_slashes=False)
 def users(email, password):
 
     from auth import Auth
@@ -26,7 +27,7 @@ def users(email, password):
     try:
         user = AUTH.register_user(email, password)
         return jsonify({"email": email,
-                         "message": "user created"})
+                        "message": "user created"})
     except ValueError as err:
         return jsonify({"message": "email already registered"})
 
