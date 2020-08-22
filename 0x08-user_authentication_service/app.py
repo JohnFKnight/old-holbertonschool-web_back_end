@@ -17,12 +17,11 @@ def hello_world():
 @app.route('/users/<email>/<password>',
            methods=['GET', 'POST'], strict_slashes=False)
 def users(email, password):
-
+    """ Authenticate user
+    """
     from auth import Auth
 
     AUTH = Auth()
-    # return request.args.get(email)
-    # return jsonify(email, password)
 
     try:
         user = AUTH.register_user(email, password)
