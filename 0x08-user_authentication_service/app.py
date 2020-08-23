@@ -33,7 +33,8 @@ def auth_users() -> str:
         return {"message": "email already registered"}, 400
 
 
-# @app.route("/users/<str:email><str:password>", methods=['GET'], strict_slashes=False)
+# @app.route("/users/<str:email><str:password>",
+#            methods=['GET'], strict_slashes=False)
 # def valid_login() -> bool:
 #     """ Validate login
 #     """
