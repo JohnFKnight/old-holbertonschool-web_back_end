@@ -19,7 +19,7 @@ def hello_world():
 
 
 @app.route("/users", methods=['POST'], strict_slashes=False)
-def users() -> str:
+def auth_users() -> str:
     """ Authenticate user
     """
 
