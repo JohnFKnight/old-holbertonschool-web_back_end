@@ -41,15 +41,26 @@ class Auth:
         except Exception as e:
             return False
 
+    # def create_session(self, email: str) -> str:
+    #     """ Create and set user session id.
+    #     """
+    #     try:
+    #         usr = self._db.find_user_by(email=email)
+    #         # sess = _generate_uuid()
+    #         self._db.update_user(usr.id, session_id= _generate_uuid())
+    #         return usr.session_id
+    #         # return sess
+    #     except NoResultFound:
+    #         return None
+
+
     def create_session(self, email: str) -> str:
-        """ Create and set user session id.
-        """
+        """ create a session for a user """
+        u = _generate_uuid()
         try:
-            usr = self._db.find_user_by(email=email)
-            sess = _generate_uuid()
-            self._db.update_user(usr.id, session_id=sess)
-            # return usr.session_id
-            return sess
+            user = self._db.find_user_by(email=email)
+            self._db.update_user(user.id, session_id=u)
+            return u
         except NoResultFound:
             return None
 
