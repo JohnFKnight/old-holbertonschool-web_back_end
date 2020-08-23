@@ -53,7 +53,6 @@ class Auth:
     #     except NoResultFound:
     #         return None
 
-
     def create_session(self, email: str) -> str:
         """ create a session for a user """
         u = _generate_uuid()
