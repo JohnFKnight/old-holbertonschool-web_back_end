@@ -2,11 +2,10 @@
 """ Flask app
 """
 
-from flask import Flask, jsonify, request, make_response
+from flask import Flask, jsonify, request
 from auth import Auth
 
 AUTH = Auth()
-
 app = Flask(__name__)
 
 
@@ -32,6 +31,22 @@ def auth_users() -> str:
         # return make_response( jsonify(
         # {"message": "email already registered"}), 400)
         return {"message": "email already registered"}, 400
+
+
+# @app.route("/users/<str:email><str:password>", methods=['GET'], strict_slashes=False)
+# def valid_login() -> bool:
+#     """ Validate login
+#     """
+
+#     try:
+#         user = AUTH.register_user(
+#             request.form['email'], request.form['password'])
+#         return {"email": user.email,
+#                 "message": "user created"}
+#     except ValueError as err:
+#         # return make_response( jsonify(
+#         # {"message": "email already registered"}), 400)
+#         return {"message": "email already registered"}, 400
 
 
 if __name__ == "__main__":
