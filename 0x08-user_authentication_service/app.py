@@ -35,19 +35,17 @@ def auth_users() -> str:
 
 # @app.route("/users/<str:email><str:password>",
 #            methods=['GET'], strict_slashes=False)
-# def valid_login() -> bool:
+# def valid_login(email: str, password: str) -> bool:
 #     """ Validate login
 #     """
 
 #     try:
-#         user = AUTH.register_user(
-#             request.form['email'], request.form['password'])
-#         return {"email": user.email,
-#                 "message": "user created"}
-#     except ValueError as err:
-#         # return make_response( jsonify(
-#         # {"message": "email already registered"}), 400)
-#         return {"message": "email already registered"}, 400
+#         usr = AUTH.find_user_by(email)
+#         hpwd = user.hashed_password
+#         if hpwd == AUTH._hash_password(password):
+#             return True
+#     except Exception:
+#         return False
 
 
 if __name__ == "__main__":

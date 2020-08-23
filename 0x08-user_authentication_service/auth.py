@@ -27,6 +27,19 @@ class Auth:
             hpwd = _hash_password(password)
             return self._db.add_user(email, hpwd)
 
+    def valid_login(self, email: str, password: str) -> bool:
+        """ Validate login
+        """
+        try:
+            usr = self._db.find_user_by(email=email)
+            hpwd = usr.hashed_password
+            if bcrypt.checkpw(password.encode(), hpwd):
+                return True
+            else:
+                return False
+        except Exception as e:
+            return False
+
 
 def _hash_password(password: str) -> str:
     """ Create salt-ed, hash-ed pwd
