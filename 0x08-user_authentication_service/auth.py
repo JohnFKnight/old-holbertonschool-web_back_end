@@ -41,6 +41,16 @@ class Auth:
         except Exception as e:
             return False
 
+    def create_session(self, email: str) -> str:
+        """ Create and set user session id.
+        """
+        try:
+            usr = self._db.find_user_by(email=email)
+            usr.session_id = _generate_uuid()
+            return usr.session_id
+        except Exception:
+            return None
+
 
 def _hash_password(password: str) -> str:
     """ Create salt-ed, hash-ed pwd
