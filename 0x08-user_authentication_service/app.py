@@ -2,7 +2,8 @@
 """ Flask app
 """
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, abort
+from sqlalchemy.orm.exc import NoResultFound
 from auth import Auth
 
 AUTH = Auth()
@@ -33,19 +34,22 @@ def auth_users() -> str:
         return {"message": "email already registered"}, 400
 
 
-# @app.route("/users/<str:email><str:password>",
-#            methods=['GET'], strict_slashes=False)
-# def valid_login(email: str, password: str) -> bool:
-#     """ Validate login
-#     """
+@app.route("/sessions", methods=['POST'], strict_slashes=False)
+def login() -> str:
+    """ Validate login
+    """
 
-#     try:
-#         usr = AUTH.find_user_by(email)
-#         hpwd = user.hashed_password
-#         if hpwd == AUTH._hash_password(password):
-#             return True
-#     except Exception:
-#         return False
+    data = request.form
+
+    try:
+        validlog = AUTH.valid_login(data['email'], data['password'])
+        if validlog:
+            AUTH.create_session(data['email'])
+            return {"email": data['email'], "message": "logged in"}
+        else:
+            abort(401)
+    except NoResultFound:
+        abort(401)
 
 
 if __name__ == "__main__":
