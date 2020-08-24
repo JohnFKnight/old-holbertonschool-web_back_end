@@ -57,6 +57,8 @@ def login() -> str:
 
 @app.route("/sessions", methods=['DELETE'], strict_slashes=False)
 def logout() -> str:
+    """Log out user by destroying user session id
+    """
     form = request.form
     try:
         "session id in request cookie"
