@@ -67,7 +67,7 @@ class Auth:
         try:
             usr = self._db.find_user_by(id=user_id)
             self._db.update_user(usr.id, 'usr.id=None')
-            print(usr.id, usr.email)
+            # print(usr.id, usr.email)
             return None
         except NoResultFound:
             return None
