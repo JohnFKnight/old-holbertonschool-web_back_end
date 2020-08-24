@@ -2,7 +2,7 @@
 """ Flask app
 """
 
-from flask import Flask, jsonify, request, abort
+from flask import Flask, jsonify, request, abort, make_response
 from sqlalchemy.orm.exc import NoResultFound
 from auth import Auth
 
@@ -42,10 +42,13 @@ def login() -> str:
     data = request.form
 
     try:
-        validlog = AUTH.valid_login(data['email'], data['password'])
-        if validlog:
-            AUTH.create_session(data['email'])
-            return {"email": data['email'], "message": "logged in"}
+        valid = AUTH.valid_login(data['email'], data['password'])
+        if valid:
+            sess = AUTH.create_session(data['email'])
+            resp = make_response({"email": data['email'],
+                                  "message": "logged in"})
+            resp.set_cookie("session_id", sess)
+            return resp
         else:
             abort(401)
     except NoResultFound:
