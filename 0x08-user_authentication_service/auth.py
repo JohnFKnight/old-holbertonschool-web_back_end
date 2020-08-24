@@ -12,7 +12,7 @@ from sqlalchemy.orm.exc import NoResultFound
 class Auth:
     """Auth class to interact with the authentication database.
     """
-    
+
     def __init__(self):
         """ init function """
         self._db = DB()
@@ -85,7 +85,7 @@ class Auth:
         except NoResultFound:
             raise ValueError
 
-            
+
 def _hash_password(password: str) -> str:
     """ Hash a password """
     return bcrypt.hashpw(password.encode(), bcrypt.gensalt())
