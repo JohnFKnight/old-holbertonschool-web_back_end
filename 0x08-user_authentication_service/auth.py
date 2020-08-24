@@ -56,14 +56,19 @@ class Auth:
     def get_user_from_session_id(self, session_id: str) -> str:
         """ Find user from session id.
         """
-        # if session_id:
         try:
             usr = self._db.find_user_by(session_id=session_id)
             return usr
-        except Exception:
+        except NoResultFound:
             return None
-        # else:
-        #     return None
+
+    def destroy_session(self, user_id: int) -> None:
+        try:
+            usr = self._db.find_user_by(id=user_id)
+            self._db.update_user(usr.id, usr.id=None)
+            return None
+        except NoResultFound:
+            return None
 
 
 def _hash_password(password: str) -> str:
