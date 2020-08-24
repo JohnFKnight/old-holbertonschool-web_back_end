@@ -70,7 +70,7 @@ class Auth:
             usr.id = None
             # self._db.update_user(user_id, id='None')
             # print(usr.id, usr.email)
-            return "Done"  # None
+            return None
         except NoResultFound:
             return None
 
