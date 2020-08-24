@@ -66,10 +66,9 @@ class Auth:
     def destroy_session(self, user_id: int) -> None:
         try:
             usr = self._db.find_user_by(id=user_id)
-            # print(usr.id, usr.email)
-            usr.id = None
-            # self._db.update_user(user_id, id='None')
-            # print(usr.id, usr.email)
+            # print(usr.id, usr.email, usr.session_id)
+            self._db.update_user(usr.id, session_id='None')
+            # print(usr.id, usr.email, usr.session_id)
             return None
         except NoResultFound:
             return None
