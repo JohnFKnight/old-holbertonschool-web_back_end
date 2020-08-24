@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 
 @app.route('/', methods=['GET'], strict_slashes=False)
-def hello_world():
+def hello_world() ->str:
     """ Simple app
     """
     # return jsonify({"message": "Bienvenue"})
@@ -41,18 +41,18 @@ def login() -> str:
 
     data = request.form
 
-    try:
-        valid = AUTH.valid_login(data['email'], data['password'])
-        if valid:
-            sess = AUTH.create_session(data['email'])
-            resp = make_response({"email": data['email'],
-                                  "message": "logged in"})
-            resp.set_cookie("session_id", sess)
-            return resp
-        else:
-            abort(401)
-    except NoResultFound:
+    # try:
+    valid = AUTH.valid_login(data['email'], data['password'])
+    if valid:
+        sess = AUTH.create_session(data['email'])
+        resp = make_response({"email": data['email'],
+                              "message": "logged in"})
+        resp.set_cookie("session_id", sess)
+        return resp
+    else:
         abort(401)
+    # except NoResultFound:
+    #     abort(401)
 
 
 if __name__ == "__main__":
