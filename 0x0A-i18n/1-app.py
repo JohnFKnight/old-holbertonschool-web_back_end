@@ -7,7 +7,7 @@ from flask.ext.babel import Babel
 # from flask_babel import Babel
 
 app = Flask(__name__)
-app.config.from_object('Config')
+app.config.from_object('1-app.Config')
 babel = Babel(app)
 
 
