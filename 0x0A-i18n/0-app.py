@@ -8,13 +8,10 @@ app = Flask(__name__)
 
 
 @app.route('/', methods=['GET'], strict_slashes=False)
-def index() -> str:
+def index():
     """Base route."""
-    return render_template(('0-index.html'))
-    #                        title="Welcome to Holberton",
-    #                        h1="Hello world"
-    #                        )
+    return render_template('0-index.html')
 
 
-if __name__ == '__main__':
-    app.run(host='127.0.0.1', port='5000')
+# if __name__ == '__main__':
+#     app.run(host='127.0.0.1', port='5000')
