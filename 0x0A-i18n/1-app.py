@@ -4,6 +4,7 @@
 
 from flask import Flask, render_template, g, request
 from flask_babel import Babel
+from os import getenv
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -25,5 +26,11 @@ def index() -> str:
     return render_template('1-index.html')
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port='5000')
+if __name__ == "__main__":
+    host = getenv("API_HOST", "0.0.0.0")
+    port = getenv("API_PORT", "5000")
+    app.run(host=host, port=port)
+
+
+# if __name__ == '__main__':
+#     app.run(host='127.0.0.1', port='5000')
