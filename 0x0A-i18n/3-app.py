@@ -31,13 +31,6 @@ def get_locale():
     return request.accept_languages.best_match(
         app.config['BABEL_DEFAULT_LOCALE'])
 
-# @babel.timezoneselector
-# def get_timezone():
-#     """ Bable get timezone decorator, function."""
-#     user = g.get('user', None)
-#     if user is not None:
-#         return user.timezone
-
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port='5000')
