@@ -29,7 +29,8 @@ def index() -> str:
 def get_locale():
     """ Babel get locale decorator, function."""
     return request.accept_languages.best_match(
-        app.config['BABEL_DEFAULT_LOCALE'])
+        app.config['LANGUAGES'])
+        # app.config['BABEL_DEFAULT_LOCALE'])
 
 # @babel.timezoneselector
 # def get_timezone():
