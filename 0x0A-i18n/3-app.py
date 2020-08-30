@@ -28,8 +28,8 @@ def index() -> str:
 @babel.localeselector
 def get_locale():
     """ Babel get locale decorator, function."""
-    return request.accept_languages.best_match(
-        app.config['BABEL_DEFAULT_LOCALE'])
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
+# BABEL_DEFAULT_LOCALE'])
 
 
 if __name__ == '__main__':
