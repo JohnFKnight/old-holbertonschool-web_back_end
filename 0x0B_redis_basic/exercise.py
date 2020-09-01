@@ -3,6 +3,7 @@
 import redis
 import uuid
 
+
 class Cache():
     def __init__(self):
         """Class Constructor."""
@@ -10,6 +11,7 @@ class Cache():
         self._redis.flushdb
 
     def storage(data: str) -> str:
+        """Store data in redis db."""
         key = str(uid.uuid4())
         data.set(key)
         return key
