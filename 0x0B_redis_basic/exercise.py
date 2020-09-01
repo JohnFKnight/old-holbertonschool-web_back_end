@@ -12,9 +12,9 @@ class Cache():
         self_redis = redis.Redis()
         self._redis.flushdb
 
-    def store(data: str) -> str:
+    def store(self, data: str) -> str:
         """Store data in redis db."""
         k = str(uid.uuid4())
         self._redis.set({k: data})
-        self._redis.bgsave()
+        # self._redis.bgsave()
         return k
