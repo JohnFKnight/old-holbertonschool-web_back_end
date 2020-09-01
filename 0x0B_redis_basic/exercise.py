@@ -12,6 +12,6 @@ class Cache():
 
     def storage(data: str) -> str:
         """Store data in redis db."""
-        key = str(uid.uuid4())
-        self._redis.set({key: data})
+        k = str(uid.uuid4())
+        self._redis.set({k: data})
         return key
