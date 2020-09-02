@@ -3,7 +3,7 @@
 
 import redis
 import uuid
-from typing import Union
+from typing import Union, Callable, List
 
 
 class Cache():
@@ -15,13 +15,19 @@ class Cache():
 
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """Store data in redis db."""
-        k = str(uuid.uuid4())
-        self._redis.set(k, data)
-        self._redis.bgsave()
-        # print(self._redis.get(k))
-        return k
+        if data:
+            k = str(uuid.uuid4())
+            self._redis.set(k, data)
+            # self._redis.bgsave()
+            # print(self._redis.get(k))
+            return k
+        else:
+            return None
+
+    # def get(self, key: str, fn: Callable = None) -> str:
+    #     self.store(key, fn)
 
 
 if __name__ == "__main__":
     cache = Cache()
-    cache.store("hell0")
+    print(cache.store("hell0"))
