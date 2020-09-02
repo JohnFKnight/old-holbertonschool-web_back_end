@@ -16,5 +16,5 @@ class Cache():
         """Store data in redis db."""
         k = str(uid.uuid4())
         self._redis.set(k, data)
-        # self._redis.bgsave()
+        self._redis.bgsave()
         return k
