@@ -9,12 +9,12 @@ class Cache():
     """ Cache class """
     def __init__(self):
         """Class Constructor."""
-        self_redis = redis.Redis('localhost')
+        self_redis = redis.Redis()
         self._redis.flushdb
 
     def store(self, data: list) -> str:
         """Store data in redis db."""
         k = str(uid.uuid4())
-        self._redis.hset(k, data)
+        self._redis.hmset(k, data)
         # self._redis.bgsave()
         return k
