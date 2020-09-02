@@ -15,9 +15,9 @@ class Cache():
 
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """Store data in redis db."""
-        if data:
+        if data is not None:
             k = str(uuid.uuid4())
-            self._redis.set(k, data)
+            self._redis.mset({k: data})
             # self._redis.bgsave()
             # print(self._redis.get(k))
             return k
@@ -25,7 +25,7 @@ class Cache():
             return None
 
     # def get(self, key: str, fn: Callable = None) -> str:
-    #     self.store(key, fn)
+    #     self.store(fn)
 
 
 if __name__ == "__main__":
