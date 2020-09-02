@@ -12,7 +12,7 @@ class Cache():
         self_redis = redis.Redis()
         self._redis.flushdb
 
-    def store(self, data: str) -> str:
+    def store(self, data: list) -> str:
         """Store data in redis db."""
         k = str(uid.uuid4())
         self._redis.hset(k, data)
