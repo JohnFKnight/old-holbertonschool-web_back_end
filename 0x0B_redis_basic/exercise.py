@@ -16,7 +16,7 @@ class Cache():
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """Store data in redis db."""
         k = str(uuid.uuid4())
-        self._redis.set(k, data)
+        self._redis.hset(k, data)
         # self._redis.bgsave()
         # print(self._redis.get(k))
         return k
