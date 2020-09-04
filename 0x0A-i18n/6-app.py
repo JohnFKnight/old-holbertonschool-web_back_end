@@ -29,7 +29,7 @@ app.config.from_object('1-app.Config')
 @app.route('/', methods=['GET'], strict_slashes=False)
 def index() -> str:
     """Base route."""
-    return render_template('3-index.html')
+    return render_template('6-index.html')
 
 
 @babel.localeselector
@@ -71,7 +71,7 @@ def get_user():
 def before_request():
     """ Run the following first always."""
     g.user = (get_user())
-    return render_template('5-index.html')
+    return render_template('6-index.html')
 
 
 if __name__ == '__main__':

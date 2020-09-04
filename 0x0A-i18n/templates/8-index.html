@@ -12,7 +12,7 @@
       <p>{{ _('logged_in_as', username=g.user.name) }}</p>
       {% else %}
       <p>{{ _('not_logged_in') }}</p>
-      <p>{{ _('timezone') }}</p>
+      <p>{{ _('current_time_is', current_time) }}</p>
       {% endif %}
     </header>
   </body>

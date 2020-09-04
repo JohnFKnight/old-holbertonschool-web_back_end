@@ -6,6 +6,7 @@ from flask import Flask, render_template, g, request
 from flask_babel import Babel
 from pytz import timezone
 import pytz
+import datetime
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -31,7 +32,7 @@ app.config.from_object('1-app.Config')
 @app.route('/', methods=['GET'], strict_slashes=False)
 def index() -> str:
     """Base route."""
-    return render_template('7-index.html')
+    return render_template('8-index.html')
 
 
 @babel.localeselector
@@ -115,7 +116,7 @@ def get_user():
 def before_request():
     """ Run the following first always."""
     g.user = (get_user())
-    return render_template('7-index.html')
+    return render_template('8-index.html')
 
 
 if __name__ == '__main__':
