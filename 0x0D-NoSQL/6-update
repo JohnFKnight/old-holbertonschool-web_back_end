@@ -1,10 +1,13 @@
 //  adds a new attribute to a document in the collection school:
 
-db.school.udateMany(
+db.school.udate(
 	{ name : "Holberton school" },
 	{ $set:
 	  {
 		address : “972 Mission street"
+
 	  }
-	}
+	},
+	false,
+	true
 )
