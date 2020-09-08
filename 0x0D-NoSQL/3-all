@@ -1,0 +1,3 @@
+// Show all docs in collection school
+
+show db.school.documents
