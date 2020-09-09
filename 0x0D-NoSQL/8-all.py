@@ -8,6 +8,4 @@ def list_all(mongo_collection):
     """ Return collections.find() """
     if not mongo_collection:
         return []
-    # client = MongoClient('mongodb://127.0.0.1:27017')
-    # db = client.mydb
     return mongo_collection.find()
