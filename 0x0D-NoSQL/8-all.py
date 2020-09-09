@@ -3,6 +3,7 @@
 
 from pymongo import MongoClient
 
+
 def list_all(mongo_collection):
     """ Return collections.find() """
     if not mongo_collection:
