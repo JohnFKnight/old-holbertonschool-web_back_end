@@ -5,4 +5,6 @@ from pymongo import MongoClient
 def list_all(mongo_collection):
     if not mongo_collection:
         return []
-    return mongo_collection.find()
+    client = MongoClient('mongodb://127.0.0.1:27017')
+    db = client.mydb
+    return db.mongo_collection.find()
