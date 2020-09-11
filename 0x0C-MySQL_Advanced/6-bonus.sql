@@ -5,7 +5,11 @@ DELIMITER $$
 
 CREATE PROCEDURE AddBonus(IN user_id INT, IN project_name VARCHAR(255), IN score FLOAT)
 BEGIN
-	REPLACE INTO projects (name) VALUES (project_name);
+	INSERT INTO projects (name)
+	SELECT project_name
+	FROM projects
+	WHERE NOT EXISTS (SELECT * from projects WHERE name = project_name) LIMIT 1;
+
 	SET @project_n = LAST_INSERT_ID();
 	INSERT INTO corrections (user_id, project_id, score)
 	       VALUES (user_id, @project_n, score);
