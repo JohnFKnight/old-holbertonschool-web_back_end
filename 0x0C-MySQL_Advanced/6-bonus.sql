@@ -9,9 +9,7 @@ BEGIN
 	SELECT project_name
 	FROM projects
 	WHERE NOT EXISTS (SELECT id from projects WHERE name = project_name) LIMIT 1;
-
-	SET @project_n = LAST_INSERT_ID();
-	INSERT INTO corrections (user_id, project_id, score)
+		INSERT INTO corrections (user_id, id, score)
 	       VALUES (user_id, @project_n, score);
 END$$
 
