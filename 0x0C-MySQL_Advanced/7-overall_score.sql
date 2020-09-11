@@ -5,11 +5,10 @@ DELIMITER $$
 
 CREATE PROCEDURE ComputeOverallScoreForUser(IN user_id INT)
 BEGIN
-	UPDATE users
-	SET overall_score = 
-	SELECT (SUM(score) / count(*))
-		FROM users
-		WHERE id = user_id;
+	UPDATE users, corrections
+	SET users.overall_score = 
+	(SUM(corrections.score) / COUNT(corrections.id))
+	WHERE corrections.user_id = user_id;
 END$$
 
 DELIMITER ;
