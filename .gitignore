@@ -5,3 +5,5 @@
 *gary*
 **__pycache__/
 .mypy_cache/
+node_modules/
+package*.json
