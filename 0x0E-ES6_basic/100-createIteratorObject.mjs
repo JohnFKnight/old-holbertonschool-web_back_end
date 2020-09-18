@@ -10,3 +10,7 @@ export default function createIteratorObject(rpt) {
   };
   return allEmps;
 }
+
+const report = createReportObject({});
+const reportWithIterator = createIteratorObject(report);
+console.log(reportWithIterator);
