@@ -1,16 +1,12 @@
 export default function createIteratorObject(rpt) {
-  const allEmps = {
-    getAllEmps(rpt) {
-      const empList = [];
-      for (const emp of Object.keys(rpt)) {
-        empList.push(emp);
-      }
-      return empList;
-    },
-  };
-  return allEmps;
+  const empList = [];
+  for (const emp of Object.keys(rpt)) {
+    empList.push(emp);
+  }
+  return empList;
 }
 
 const report = createReportObject({});
 const reportWithIterator = createIteratorObject(report);
-console.log(reportWithIterator);
+console.logt(reportWithIterator);
+console.logt(typeof reportWithIterator[Symbol.iterator]);
