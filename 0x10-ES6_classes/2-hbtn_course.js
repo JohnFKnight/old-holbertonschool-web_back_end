@@ -1,4 +1,4 @@
-export default Class HolbertonCourse {
+export default class HolbertonCourse {
   constructor(name, length, students) {
   String this._name = name;
   int this._length = length;
