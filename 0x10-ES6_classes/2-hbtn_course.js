@@ -24,14 +24,20 @@ export default class HolbertonCourse {
   }
 
   set name(x) {
-    this._name = x;
+    if (Object.prototype.toString.call(x) === '[object String]') {
+      this._name = x;
+    }
   }
 
   set length(x) {
-    this._length = x;
+    if (Object.prototype.toString.call(x) === '[object Number]') {
+      this._length = x;
+    }
   }
 
   set students(x) {
-    this._students = x;
+    if (Object.prototype.toString.call(x) === '[object Array]') {
+      this._students = x;
+    }
   }
 }
