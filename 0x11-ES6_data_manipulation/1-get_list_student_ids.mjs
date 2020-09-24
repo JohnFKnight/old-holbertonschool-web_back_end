@@ -1,7 +1,10 @@
 export default function getListStudentIds(arr) {
-  return arr.map((a) => {a.id});
+  if (Object.prototype.toString.call(arr) !== '[object Array]') {
+    return [];
+  }
+    return arr.map((a) => a.id);
 }
 import getListStudents from './0-get_list_students.mjs';
 console.log (getListStudentIds("hello"));
-// console.log (getListStudentIds(getListStudentIds()));
+console.log (getListStudentIds(getListStudents()));
 // console.log ((getListStudents()));
