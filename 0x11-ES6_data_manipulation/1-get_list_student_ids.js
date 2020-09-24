@@ -1,3 +1,3 @@
 export default function getListStudentIds(arr) {
-  return Array.from(arr);
+  return arr.map(a => a.id);
 }
