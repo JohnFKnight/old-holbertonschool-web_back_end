@@ -3,31 +3,18 @@ export default class HolbertonCourse {
     if (Object.prototype.toString.call(name) === '[object String]') {
       this._name = name;
     } else {
-      try {
-        throw TypeError('name must be a string');
-      } catch (e) {
-        console.log(e);
-      }
+      throw TypeError('name must be a String');
     }
     if (Object.prototype.toString.call(length) === '[object Number]') {
       this._length = length;
     } else {
-      try {
-        throw TypeError('length must be a Number');
-      } catch (e) {
-        console.log(e);
-      }
+      throw TypeError('length must be a Number');
     }
-    if (Object.prototype.toString.call(students) === '[object Array]') {
-      if (students.every((s) => Object.prototype.toString.call(s) === '[object String]')) {
-        this._students = students;
-      }
+    if ((Object.prototype.toString.call(students) === '[object Array]')
+    && (students.every((s) => Object.prototype.toString.call(s) === '[object String]'))) {
+      this._students = students;
     } else {
-      try {
-        throw TypeError('students must be an Array');
-      } catch (e) {
-        console.log(e);
-      }
+      throw TypeError('students must be an Array of String');
     }
   }
 
@@ -47,11 +34,7 @@ export default class HolbertonCourse {
     if (Object.prototype.toString.call(name) === '[object String]') {
       this._name = name;
     } else {
-      try {
-        throw TypeError('name must be a string');
-      } catch (e) {
-        console.log(e);
-      }
+      throw TypeError('name must be a String');
     }
   }
 
@@ -59,25 +42,16 @@ export default class HolbertonCourse {
     if (Object.prototype.toString.call(length) === '[object Number]') {
       this._length = length;
     } else {
-      try {
-        throw TypeError('length must be a Number');
-      } catch (e) {
-        console.log(e);
-      }
+      throw TypeError('length must be a Number');
     }
   }
 
   set students(students) {
-    if (Object.prototype.toString.call(students) === '[object Array]') {
-      if (students.every((s) => Object.prototype.toString.call(s) === '[object String]')) {
-        this._students = students;
-      }
+    if ((Object.prototype.toString.call(students) === '[object Array]')
+    && (students.every((s) => Object.prototype.toString.call(s) === '[object String]'))) {
+      this._students = students;
     } else {
-      try {
-        throw TypeError('students must be an Array');
-      } catch (e) {
-        console.log(e);
-      }
+      throw TypeError('students must be an Array of String');
     }
   }
 }
@@ -89,4 +63,4 @@ export default class HolbertonCourse {
 // console.log(c1);
 // c1.name = 12;
 // const c2 = new HolbertonCourse('ES6', '1', ['Bob', 'Jane']);
-// const c3 = new HolbertonCourse(13, '1', ['Bob', 'Jane']);
+const c3 = new HolbertonCourse('ES6', 1, [15, 'Jane']);
