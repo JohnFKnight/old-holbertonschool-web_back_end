@@ -19,7 +19,9 @@ export default class HolbertonCourse {
       }
     }
     if (Object.prototype.toString.call(students) === '[object Array]') {
-      this._students = students;
+      if (students.every((s) => Object.prototype.toString.call(s) === '[object String]')) {
+        this._students = students;
+      }
     } else {
       try {
         throw new TypeError('students must be an Array');
@@ -67,7 +69,9 @@ export default class HolbertonCourse {
 
   set students(students) {
     if (Object.prototype.toString.call(students) === '[object Array]') {
-      this._students = students;
+      if (students.every((s) => Object.prototype.toString.call(s) === '[object String]')) {
+        this._students = students;
+      }
     } else {
       try {
         throw new TypeError('students must be an Array');
