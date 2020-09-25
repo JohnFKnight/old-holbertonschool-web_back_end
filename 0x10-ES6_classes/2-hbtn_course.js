@@ -63,4 +63,4 @@ export default class HolbertonCourse {
 // console.log(c1);
 // c1.name = 12;
 // const c2 = new HolbertonCourse('ES6', '1', ['Bob', 'Jane']);
-const c3 = new HolbertonCourse('ES6', 1, [15, 'Jane']);
+// const c3 = new HolbertonCourse('ES6', 1, [15, 'Jane']);
