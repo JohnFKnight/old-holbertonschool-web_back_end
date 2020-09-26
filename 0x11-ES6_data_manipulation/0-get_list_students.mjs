@@ -17,3 +17,5 @@ export default function getListStudent() {
     },
   ];
 }
+
+console.log(getListStudent());
