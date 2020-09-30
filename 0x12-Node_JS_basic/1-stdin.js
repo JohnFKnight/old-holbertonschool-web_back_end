@@ -1,13 +1,16 @@
-process.stdin.setEncoding('utf8');
+const readline = require('readline');
 
-process.stdout.write('Welcome to Holberton School, what is your name?\n');
-
-process.stdin.on('readable', () => {
-  const chunk = process.stdin.read();
-  process.stdout.write('Your name is: ', chunk);
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
 });
 
-process.on('exit', () => {
-  process.stdout.clearLine();
-  process.stdout.write('This important software is now closing\n');
+rl.question('Welcome to Holberton School, what is your name? ', (name) => {
+  console.log('Your name is:', name);
+  rl.close();
+});
+
+rl.on('end', () => {
+  console.log('This important software is now closing');
+  process.exit(0);
 });
