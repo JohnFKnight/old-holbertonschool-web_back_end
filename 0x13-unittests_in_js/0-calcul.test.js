@@ -20,7 +20,7 @@ describe('Round', function () {
     assert.equal(calcNum(3, 4), 7);
   });
   it('Add 2 integers', function () {
-    assert.equal(calcNum(3, 4), 7);
+    assert.equal(calcNum(3, 4), 8);
   });
   it('Add 2 integers', function () {
     assert.equal(calcNum(3, 4), 7);

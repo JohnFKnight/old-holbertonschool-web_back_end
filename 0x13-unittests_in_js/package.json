@@ -1,6 +1,6 @@
 {
     "scripts":
     {
-	"test": "./node_modules/mocha/bin/mocha --require assert --exit"
+	"test": "mocha"
     }
 }
