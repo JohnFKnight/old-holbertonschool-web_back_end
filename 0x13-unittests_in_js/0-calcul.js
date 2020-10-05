@@ -1,6 +1,6 @@
 module.exports = function calculateNumber(a, b) {
   if (isNaN(a) || isNaN(b)) {
-    throw TypeError;
+      throw new TypeError();
   }
   return Math.round(a) + Math.round(b);
 }
