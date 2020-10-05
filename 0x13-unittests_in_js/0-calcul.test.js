@@ -23,4 +23,7 @@ describe('calcNum', function () {
   it('Add neg and pos floats; neg result', function () {
       assert.strictEqual(calcNum(-3.5, 2), -1);
   });
+  it('should throw error if NaN passed', function () {
+    assert.throws(() => calculateNumber(NaN, 3), '[Function: TypeError]');
+  });
 });
