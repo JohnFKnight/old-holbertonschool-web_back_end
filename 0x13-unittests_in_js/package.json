@@ -1,6 +1,9 @@
 {
-    "scripts":
-    {
-	"test": "mocha"
+    "scripts": {
+        "test": "mocha",
+        "lint": "./node_modules/.bin/eslint"
+    },
+    "dependencies": {
+        "mocha": "^8.1.3"
     }
 }
