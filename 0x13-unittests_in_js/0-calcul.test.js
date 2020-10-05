@@ -24,6 +24,6 @@ describe('calculateNumber', function () {
       assert.strictEqual(calculateNumber(-3.5, 2), -1);
   });
   it('should throw error if NaN passed', function () {
-      assert.throws(function () {calculateNumber(NaN, 3), '[Function: TypeError]'});
+      assert.throws(function() {calculateNumber(NaN, 3), '[Function: TypeError]'});
   });
-});
+})
