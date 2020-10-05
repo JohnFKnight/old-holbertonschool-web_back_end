@@ -1,20 +1,26 @@
-const assert = require('assert');
-const calculateNumber = require('./0-calcul.js');
+const assert = require ("assert");
+const calcNum = require('./0-calcul.js');
 
-describe('calculateNumber', function () {
-  it('should work without rounding', function () {
-    assert.strictEqual(calculateNumber(1, 3), 4);
+describe('calcNum', function () {
+  it('Add 2 integers', function () {
+    assert.strictEqual(calcNum(3, 4), 7);
   });
-  it('should work with rounding', function () {
-    assert.strictEqual(calculateNumber(1, 3.7), 5);
+  it('Add 2 floats', function () {
+    assert.strictEqual(calcNum(3.4, 4.2), 7);
   });
-  it('should work with rounding on both numbers', function () {
-    assert.strictEqual(calculateNumber(1.2, 3.7), 5);
+  it('Add 2 floats .0', function () {
+    assert.strictEqual(calcNum(3.0, 4.0), 7);
   });
-  it('should work with rounding up from .5', function () {
-    assert.strictEqual(calculateNumber(1.5, 3.7), 6);
+  it('Add neg and pos ints; pos result', function () {
+    assert.strictEqual(calcNum(-3, 4), 1);
   });
-  it('should throw error if NaN passed', function () {
-    assert.throws(() => calculateNumber(NaN, 3.7), { name: 'TypeError' });
+  it('Add neg and pos ints; neg result', function () {
+    assert.strictEqual(calcNum(3, - 4), -1);
+  });
+  it('Add neg and pos flosts; pos result', function () {
+    assert.strictEqual(calcNum(-3.4, 4.5), 2);
+  });
+  it('Add neg and pos floats; neg result', function () {
+      assert.strictEqual(calcNum(-3.5, 2), -1);
   });
 });
