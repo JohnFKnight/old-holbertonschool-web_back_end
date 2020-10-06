@@ -1,8 +1,8 @@
-const { expect } = require('chai');
-// const assert = chai.assert;
-// const expect = chai.expect;
-// const should = chai.should();
-const calculateNumber = require('./1-calcul.js');
+const chai = require('chai');
+const assert = chai.assert;
+const expect = chai.expect;
+const should = chai.should();
+const calculateNumber = require('./2-calcul_chai.js');
 
 describe('calculateNumber', function () {
     it('Sum function with rounding', function () {
