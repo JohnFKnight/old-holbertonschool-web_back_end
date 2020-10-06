@@ -23,7 +23,4 @@ describe('Round', function () {
   it('should work with rounding', function () {
       assert.equal(calcnum(-3.5, 2), -1);
   });
-  it('should throw error if NaN passed', function () {
-      assert.throws(function() {calcnum(NaN, 3), '[Function: TypeError]'});
-  });
 })
