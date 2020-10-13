@@ -15,19 +15,12 @@ const blacklist = [
 ];
 
 function sendNotification(phoneNumber, message, job, done) {
-    // console.log(job.data);
-    let progress = 0;
-    // job.progress(progress + 1, 50);
-    function status() {
-    	progress += 1;
-    	job.progress(progress, 100);
-    	if (progress >= 50) return done();
-    }
-    status();
+    job.progress(0, 100);
     if (blacklist.includes(phoneNumber)) {
-	return done('Phone number ' + phoneNumber + ' is blacklisted');
+	return done('Phone number %d is blacklisted', phoneNumber);
     }
-    console.log('Sending notification ' + job.id + ' to ' + phoneNumber + ', with message: ' + message);
-    done();
+    job.progress(50, 100);
+    console.log('Sending notification %d to %d with message %s', job.id, phoneNumber, message);
+    return done();
 }
 

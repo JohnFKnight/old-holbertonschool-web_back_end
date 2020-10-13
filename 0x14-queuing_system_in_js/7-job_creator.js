@@ -4,12 +4,6 @@
 const kue = require('kue')
 , push_notification_code_2 = kue.createQueue();
 
-// const notification = {
-//     phoneNumber: '123.456.7890',
-//     message: 'hello',
-// };
-
-
 const jobs =  [{
     phoneNumber: '4153518780',
     message: 'This is the code 1234 to verify your account'
