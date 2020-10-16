@@ -1,8 +1,8 @@
-// const kue = require('kue')
-// , queue = kue.createQueue();
-
 const kue = require('kue')
-, push_notification_code_2 = kue.createQueue();
+, queue = kue.createQueue();
+
+// const kue = require('kue')
+// , push_notification_code_2 = kue.createQueue();
 
 const jobs =  [{
     phoneNumber: '4153518780',
@@ -52,7 +52,7 @@ const jobs =  [{
 
 
 for (const job of jobs) {
-    job = push_notification_code_2.create('notify2', job).save(function(err) {
+    job = queue.create('push_notification_code_2', job).save(function(err) {
 	if (!err) console.log('Notification job created: %d', job.id);
 	job.on('complete', function() {
 	    console.log('Notification job %d completed', job.id);
