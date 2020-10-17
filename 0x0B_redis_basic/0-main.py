@@ -4,4 +4,4 @@ from exercise import Cache
 
 cache = Cache()
 
-(cache.store("Goodbye"))
+print(cache.store("Goodbye"))
