@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-""" Redis exercise """
-
+""" Module for Redis db """
 import redis
 from uuid import uuid4
-from typing import Union, Callable, List
+from typing import Union, Callable, Optional
+from sys import byteorder
+from functools import wraps
 
 
 class Cache:
