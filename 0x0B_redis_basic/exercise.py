@@ -15,15 +15,9 @@ class Cache():
 
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """Store data in redis db."""
-        # if data is not None:
         key = str(uuid.uuid4())
         self._redis.set(key, data)
-        # self._redis.bgsave()
-        # print(type(self._redis.get(k).decode('utf-8')))  # == data)
-        # return self._redis.get(k)  # .decode('utf-8')
         return key
-        # else:
-        # return None
 
     def get(self, key: str, fn: Callable = None) -> str:
         k = self.store(key)
@@ -37,7 +31,6 @@ class Cache():
     def get_int():
         pass
 
-
-if __name__ == "__main__":
-    cache = Cache()
-    print(cache.store("hell0"))
+# if __name__ == "__main__":
+#     cache = Cache()
+#     print(cache.store("hell0"))
