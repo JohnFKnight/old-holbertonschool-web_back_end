@@ -21,7 +21,7 @@ class Cache():
             # self._redis.bgsave()
             # print(type(self._redis.get(k).decode('utf-8')))  # == data)
             # return self._redis.get(k)  # .decode('utf-8')
-            return (k)
+            return k
         else:
             return None
 
