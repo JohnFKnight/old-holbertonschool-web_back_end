@@ -22,3 +22,13 @@ class Cache:
         # use pipelining for multi sets, mset() is not approrpiate for a cache
         self._redis.set(key, data)
         return key
+
+    def get(self, key: str, fn: Optional[Callable] = None)\
+            -> Union[str, bytes, int, float]:
+        """ Returns data converted to desired format """
+        # default Redis.get in case key does not exist
+        data = self._redis.get(key)
+        # use callable if one provided
+        if fn:
+            data = fn(data)
+        return data
