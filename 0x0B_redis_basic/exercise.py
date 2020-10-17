@@ -16,12 +16,12 @@ class Cache():
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """Store data in redis db."""
         # if data is not None:
-        k = str(uuid.uuid4())
-        self._redis.set(k, data)
+        key = str(uuid.uuid4())
+        self._redis.set(key, data)
         # self._redis.bgsave()
         # print(type(self._redis.get(k).decode('utf-8')))  # == data)
         # return self._redis.get(k)  # .decode('utf-8')
-        return k
+        return key
         # else:
         # return None
 
