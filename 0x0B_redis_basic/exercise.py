@@ -20,7 +20,7 @@ class Cache():
             self._redis.set(k, data)
             # self._redis.bgsave()
             # print(type(self._redis.get(k).decode('utf-8')))  # == data)
-            return self._redis.get(k).decode('utf-8')
+            return self._redis.get(k)  # .decode('utf-8')
         else:
             return None
 
