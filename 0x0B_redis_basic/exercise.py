@@ -2,36 +2,22 @@
 """ Redis exercise """
 
 import redis
-from  uuid import uuid4
+from uuid import uuid4
 from typing import Union, Callable, List
 
 
-class Cache():
-    """ Cache class """
+class Cache:
+    """ Class for methods that operate a caching system """
+
     def __init__(self):
-        """Class Constructor."""
+        """ Instance of Redis db """
         self._redis = redis.Redis()
         self._redis.flushdb()
 
     def store(self, data: Union[str, bytes, int, float]) -> str:
-        """Store data in redis db."""
+        """ Creates key and stores it with data """
+        # uuid must be type cast to str for Redis to be able to accept it
         key = str(uuid4())
+        # use pipelining for multi sets, mset() is not approrpiate for a cache
         self._redis.set(key, data)
         return key
-
-    def get(self, key: str, fn: Callable = None) -> str:
-        """Store data in redis db."""
-        k = self.store(key)
-        return (self._redis.get(k).decode('utf-8'))
-
-    def get_str():
-        """Store data in redis db."""
-        pass
-
-    def get_int():
-        """Store data in redis db."""
-        pass
-
-# if __name__ == "__main__":
-#     cache = Cache()
-#     print(cache.store("hell0"))
