@@ -23,4 +23,3 @@ function sendNotification(phoneNumber, message, job, done) {
     console.log('Sending notification %d to %d with message %s', job.id, phoneNumber, message);
     return done();
 }
-

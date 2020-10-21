@@ -4,17 +4,11 @@ const { promisify } = require('util');
 const getAsync = promisify(client.get).bind(client);
 
 function reserveSeat(number) {
-  // console.log(number);
   client.set('available_seats', number);
-  console.log('SEATS SET ', ('available_seats'));
 }
 
 async function getCurrentAvailableSeats() {
-  // console.log(await getAsync('available_seats'));
-  const seats = await getAsync('available_seats').then(function(reply) {
-    console.log('REPLY ', reply);
-    return reply;
-  });
+  return (await getAsync('available_seats'));
 }
 
 let reservationEnabled = true;
@@ -31,7 +25,6 @@ app.listen(port, () => {
 })
 
 app.get('/available_seats', (req, res) => {
-  reserveSeat(55);
   res.json({numberOfAvailableSeats: getCurrentAvailableSeats()});
 })
 
@@ -54,8 +47,14 @@ app.get('/reserve_seat', (req, res) => {
 app.get('/process', (req, res) => {
   queue.process('reserve_seat', function(job, done) {
     let seats = getCurrentAvailableSeats();
-    console.log(seats)
-    let reserved = reserveSeat()
-    done();
+    seats -= 1;
+    reserveSeat(seats);
+    if (seats = 0)
+      reservationEnabled = false;
+    else if (seats > = 0)
+      done();
+    else
+      done(Error('Not enough seats available'));
   });
+  res.json({status: 'Queue processing'});
 })
